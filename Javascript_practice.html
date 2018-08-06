@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>APPLE</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <header>
+      <a href="#" onclick="imgClick();"><span id="a"><img src="images/apple.jpg"></span></a>
+
+    </header>
+
+    <div class="main">
+        <div id="stage" style="padding-left: 180px; height: 160px;">
+            <div id="spinner" style="-webkit-transform-origin: 180px 0 0;">
+            <img style="-webkit-transform: rotateY(0deg) translateX(180px); padding: 0 0 0 160px;" src="images/apple.jpg" width="200" height="160" alt="">
+            <img style="-webkit-transform: rotateY(-60deg) translateX(180px); padding: 0 0 0 147px;" src="images/zyobuzu.jpg" width="213" height="160" alt="">
+            <img style="-webkit-transform: rotateY(-120deg) translateX(180px); padding: 0 0 0 120px;" src="images/apple.jpg" width="240" height="160" alt="">
+            <img style="-webkit-transform: rotateY(-180deg) translateX(180px); padding: 0 0 0 147px;" src="images/zyobuzu.jpg" width="213" height="160" alt="">
+            <img style="-webkit-transform: rotateY(-240deg) translateX(180px); padding: 0 0 0 122px;" src="images/apple.jpg" width="238" height="160" alt="">
+            <img style="-webkit-transform: rotateY(-300deg) translateX(180px); padding: 0 0 0 122px;" src="images/zyobuzu.jpg" width="238" height="160" alt="">
+            </div>
+            </div>
+    </div>
+
+    <div id="loader_container">
+  
+        <div id="bar_container">
+          <div id="progress_bar">
+            <div id="progress_percentage">
+              10%
+            </div><!--of #progress_percentage-->
+          </div><!--of #progress_bar-->
+        </div><!--of #bar_container-->
+        
+        <div id="text_container">
+          Loading
+          <span>Please Wait...</span>
+        </div><!--of #text_container-->
+        
+      </div><!--of #loader_container-->
+
+    <footer>
+    </footer>
+
+    <style type="text/css">
+
+      #spinner img {
+        position: absolute;
+        border: 1px solid #ccc;
+        background: rgba(255,255,255,0.8);
+        box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
+      }
+    
+    </style>
+
+    <script type="text/javascript">
+      function imgClick(){
+        document.write('<img src="images/zyobuzu.jpg" alt="ジョブズ">')
+        alert("ジョブズに進化したよ")
+      }
+    </script>
+
+
+    <script>
+      var bar=$('#progress_bar');
+      var percentage=parseInt($('#progress_percentage').html());
+
+      function stopProgress(){
+        clearInterval(progress);
+      }
+
+      var progress= setInterval(function(){
+        percentage++;
+        if (percentage<=100){
+          $('#progress_percentage').html(percentage+'%');
+          if (percentage>10) {
+            bar.css('width',percentage+'%');
+            console.log(percentage);
+          }
+        }
+        else {
+          stopProgress()
+        }
+      },80);
+    </script>
+  </body>
+</html>
